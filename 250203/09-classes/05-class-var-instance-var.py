@@ -1,5 +1,5 @@
 class Circle:
-    pi = 3.14
+    pi = 3.14 # 클래스 변수 
 
     def __init__(self, radius):
         self.radius = radius

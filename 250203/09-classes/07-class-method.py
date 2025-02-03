@@ -12,3 +12,4 @@ class Person:
 person1 = Person('Alice')
 person2 = Person('Bob')
 print(Person.population)  # 2
+
