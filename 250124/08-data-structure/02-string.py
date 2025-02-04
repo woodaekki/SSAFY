@@ -1,77 +1,77 @@
-# # find
-# text = 'banana'
-# print(text.find('k')) # 문자가 없다면 -1 
-# print(text.find('a'))
+# find
+text = 'banana'
+print(text.find('k')) # 문자가 없다면 -1 
+print(text.find('a'))
 
-# # index: 가장 먼저 등장한 문자의 인덱스 1개만 출력
-# print(text.index('a')) 
+# index: 가장 먼저 등장한 문자의 인덱스 1개만 출력
+print(text.index('a')) 
 # print(text.index('z'))  # 문자가 없다면 오류 
 
-# # isupper: 전부 대문자인지 여부 확인 
-# # is로 시작하는 메서드는 bool 타입으로 출력 !
-# string1 = 'HELLO'
-# string2 = 'hello'
-# print(string1.isupper())  
-# print(string2.isupper())  
+# isupper: 전부 대문자인지 여부 확인 
+# is로 시작하는 메서드는 bool 타입으로 출력 !
+string1 = 'HELLO'
+string2 = 'hello'
+print(string1.isupper())  
+print(string2.isupper())  
 
-# # islower: 전부 소문자인지 여부 확인 
-# print(string1.islower())  
-# print(string2.islower())  
+# islower: 전부 소문자인지 여부 확인 
+print(string1.islower())  
+print(string2.islower())  
 
-# # isalpha: 전부 알파벳으로만 이루어져있는지 여부 확인 
-# string1 = 'Hello'
-# string2 = '123heis98576ssh'
-# print(string1.isalpha())  
-# print(string2.isalpha())  
+# isalpha: 전부 알파벳으로만 이루어져있는지 여부 확인 
+string1 = 'Hello'
+string2 = '123heis98576ssh'
+print(string1.isalpha())  
+print(string2.isalpha())  
 
 
-# # replace
-# text = 'Hello, world! world world'
-# new_text1 = text.replace('world', 'Python')
-# new_text2 = text.replace('world', 'Python', 1)
-# print(new_text1)  
-# print(new_text2)  # Hello, Python! world world: 바꿀 문자열의 위치 지정
-# print(text) # 문자열은 불변이므로 원본 변화 x
+# replace
+text = 'Hello, world! world world'
+new_text1 = text.replace('world', 'Python')
+new_text2 = text.replace('world', 'Python', 1)
+print(new_text1)  
+print(new_text2)  # Hello, Python! world world: 바꿀 문자열의 위치 지정
+print(text) # 문자열은 불변이므로 원본 변화 x
 
-# # strip
-# text = '  Hello, world!  '
-# new_text = text.strip() # 공백 제거 
-# print(new_text)
+# strip
+text = '  Hello, world!  '
+new_text = text.strip() # 공백 제거 
+print(new_text)
 
-# # split
-# # sep: 구분자 문자열
-# text = 'Hello, world!'
-# words1 = text.split(',') # ,을 기준으로 나눔
-# words2 = text.split() # 공백 기준으로 나눔
-# print(words1)  # ['Hello', ' world!']
-# print(words2)  # ['Hello,', 'world!']
+# split
+# sep: 구분자 문자열
+text = 'Hello, world!'
+words1 = text.split(',') # ,을 기준으로 나눔
+words2 = text.split() # 공백 기준으로 나눔
+print(words1)  # ['Hello', ' world!']
+print(words2)  # ['Hello,', 'world!']
 
 
 # join
-# words = ['Hello', 'world!']
-# new_text = '-'.join(words)
-# print(new_text)  # Hello-world!
+words = ['Hello', 'world!']
+new_text = ''.join(words)
+print(new_text)  # Hello-world!
 
 # capitalize
-# text = 'heLLo, woRld!'
-# new_text1 = text.capitalize()
-# print(new_text1)  # Hello, world!
+text = 'heLLo, woRld!'
+new_text1 = text.capitalize()
+print(new_text1)  # Hello, world!
 
-# # title
-# new_text2 = text.title()
-# print(new_text2)  # Hello, World!
+# title
+new_text2 = text.title()
+print(new_text2)  # Hello, World!
 
-# # upper
-# new_text3 = text.upper()
-# print(new_text3)  # HELLO, WORLD!
+# upper
+new_text3 = text.upper()
+print(new_text3)  # HELLO, WORLD!
 
-# # lower
-# new_text4 = text.lower()
-# print(new_text4)  # hello, world!
+# lower
+new_text4 = text.lower()
+print(new_text4)  # hello, world!
 
-# # swapcase
-# new_text5 = text.swapcase()
-# print(new_text5)  # HEllO, WOrLD!
+# swapcase
+new_text5 = text.swapcase()
+print(new_text5)  # HEllO, WOrLD!
 
 
 # 참고
