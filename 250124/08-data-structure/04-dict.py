@@ -6,25 +6,25 @@ print(person)
 # get
 person = {'name': 'Alice', 'age': 25}
 print(person.get('name'))
-print(person.get('country'))
-print(person.get('country', 'Unknown'))
-# print(person['country'])  # KeyError: 'country'
+print(person.get('country')) # None
+print(person.get('country', 'Unknown')) #Unknown
+# print(person['country'])  # keyerror
 
 # keys
 person = {'name': 'Alice', 'age': 25}
 print(person.keys())  # dict_keys(['name', 'age'])
-for item in person.keys():
-    print(item)
+for item in person.keys(): 
+    print(item) # name
 
 # values
 person = {'name': 'Alice', 'age': 25}
-print(person.values())  # dict_values(['Alice', 25])
+print(person.values())  
 for item in person.values():
     print(item)
 
 # items
 person = {'name': 'Alice', 'age': 25}
-print(person.items())  # dict_items([('name', 'Alice'), ('age', 25)])
+print(person.items())  
 for key, value in person.items():
     print(key, value)
 

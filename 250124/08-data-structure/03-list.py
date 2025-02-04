@@ -3,6 +3,7 @@
 my_list = [1, 2, 3]
 my_list.append(4) 
 print(my_list)  # 원본 변화 
+print(my_list.append(4)) # append는 반환하지 않으므로
 
 # extend
 my_list = [1, 2, 3]
