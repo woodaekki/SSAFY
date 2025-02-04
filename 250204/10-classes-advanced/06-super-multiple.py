@@ -28,11 +28,11 @@ class Child(ParentA, ParentB):
 
 
 child = Child()
-child.show_value()
-"""
-Value from ParentA: ParentA
-Value from Child: Child
-"""
+child.show_value() 
+
+# 클래스 Child의 show_value에서 super로 -> 클래스 ParentA의 show_value 이동
+# 클래스 ParentA의 show_value는 super가 없음 -> print(self.value_a)
+# !!그리고 다시 클래스 Child의 show_value로 돌아와서 -> print(self.value_c)
 
 print(child.value_c) 
 print(child.value_a)  

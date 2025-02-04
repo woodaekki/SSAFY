@@ -9,7 +9,8 @@ class Person:
         print(f'안녕하세요 {self.name}입니다.')
 
 
-person1 = Person('지민')  # 인스턴스가 생성되었습니다.
-person1.greeting()  # 안녕하세요. 지민입니다.
+person1 = Person('지민')  
+person1.greeting()  
 Person.greeting(person1)
 # Person.greeting() # TypeError: Person.greeting() missing 1 required positional argument: 'self'
+# 안녕하세요 self.name -> self.name 어떤걸 참고할지 안쓰여져있음  

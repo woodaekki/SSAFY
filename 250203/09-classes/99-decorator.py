@@ -16,9 +16,3 @@ def my_decorator(func):
 def my_function():
     print('원본 함수 실행')
 my_function()
-
-"""
-함수 실행 전
-원본 함수 실행
-함수 실행 후
-"""

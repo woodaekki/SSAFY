@@ -33,8 +33,8 @@ class BankAccount:
 
 # 계좌 개설 (인스턴스 생성)
 alice_cc = BankAccount('Alice', 1000)
-# print(alice_cc.owner)
-# print(alice_cc.balance)
+print(alice_cc.owner)
+print(alice_cc.balance)
 
 # 입금 및 출금 (인스턴스 메서드 호출)
 alice_cc.deposit(500)
@@ -45,8 +45,8 @@ alice_cc.withdraw(300)
 print(alice_cc.balance)
 
 # 이자율 변경 (클래스 메서드 호출)
-BankAccount.set_interest_rate(0.03)  # 0.03
+BankAccount.set_interest_rate(0.03)  
 print(BankAccount.interest_rate)
 
 # 잔액이 양수인지 확인 (정적 메서드 호출)
-print(BankAccount.is_positive(alice_cc.balance))  # True
+print(BankAccount.is_positive(alice_cc.balance))  

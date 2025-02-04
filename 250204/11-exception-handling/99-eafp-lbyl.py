@@ -1,7 +1,7 @@
 my_dict = {'key': 'value'}
 
 # EAFP (Easier to Ask for Forgiveness than Permission, 허락보다 용서 구하기)
-# 예외 발생 후  처리 중심
+# 예외 발생 후 처리 중심
 try:
     result = my_dict['key']
     print(result)

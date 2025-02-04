@@ -80,7 +80,7 @@ class Cat(Animal):
 dog1 = Dog('멍멍이', '삽살개')
 dog2 = Dog('바둑이', '진돗개')
 print(Dog.get_dog_info())
-# 출력 예: 전체 동물 수: 2, 강아지 수: 2
+
 # -> Dog 클래스의 get_dog_info() 내부에서 Animal의 get_total_count()를 호출,
 #    그리고 Dog 클래스의 dog_count에 접근해 정보를 한꺼번에 제공
 
@@ -88,6 +88,6 @@ print(Dog.get_dog_info())
 cat1 = Cat('노아', '페르시안')
 cat2 = Cat('루비', '코숏')
 print(Cat.get_cat_info())
-# 출력 예: 전체 동물 수: 4, 고양이 수: 2
+
 # -> Cat 클래스의 get_cat_info() 내부에서 Animal의 get_total_count()를 호출,
 #    그리고 Cat 클래스의 cat_count에 접근해 정보를 한꺼번에 제공

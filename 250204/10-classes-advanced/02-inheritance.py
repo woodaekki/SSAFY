@@ -1,24 +1,3 @@
-# 상속 없는 경우 
-class Professor:
-    def __init__(self, name, age, department):
-        self.name = name
-        self.age = age
-        self.department = department
-
-    def talk(self):  # 중복
-        print(f'반갑습니다. {self.name}입니다.')
-
-
-class Student:
-    def __init__(self, name, age, gpa):
-        self.name = name
-        self.age = age
-        self.gpa = gpa
-
-    def talk(self):  # 중복
-        print(f'반갑습니다. {self.name}입니다.')
-
-
 # 상속을 사용한 계층구조 변경
 class Person:
     def __init__(self, name, age):

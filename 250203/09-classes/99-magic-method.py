@@ -9,5 +9,5 @@ class Circle:
 c1 = Circle(10)
 c2 = Circle(1)
 
-print(c1)  # 원의 반지름: 10
-print(c2)  # 원의 반지름: 1
+print(c1)  
+print(c2)  
