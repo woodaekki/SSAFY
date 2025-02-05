@@ -1,9 +1,8 @@
 ############## 주의 ##############
 # 입력을 받기위한 input 함수는 절대 사용하지 않습니다.
 def is_user_data_valid(user_data):
-    for datas in user_data:
-        data = user_data[datas]
-        if data == '':
+    for keys in user_data:
+        if user_data[keys] == "":
             return False
         else:
             return True

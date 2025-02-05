@@ -2,11 +2,20 @@
 # 입력을 받기위한 input 함수는 절대 사용하지 않습니다.
 # 파이썬 내장 함수 min 함수를 사용하지 않습니다.
 def min_score(scores):
-    min_s = 99999999999
+    min_s = 9999999999999
     for score in scores:
         if score < min_s:
             min_s = score
     return min_s
+
+
+
+# def min_score(scores):
+#     min_s = 99999999999
+#     for score in scores:
+#         if score < min_s:
+#             min_s = score
+#     return min_s
     # 여기에 코드를 작성하여 함수를 완성합니다.
 
 
