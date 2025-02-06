@@ -10,7 +10,6 @@ for t in range(1, T + 1):
     for i in range(0, N - M + 1):
         idx = arr[i: i + M]
 
-        
         # 2. 구간의 합
         total = 0  
         for num in idx:  
@@ -23,5 +22,3 @@ for t in range(1, T + 1):
             min_total = total
     
     print(f'#{t} {max_total -  min_total}')
-        
-        
