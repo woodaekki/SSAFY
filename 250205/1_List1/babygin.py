@@ -16,27 +16,30 @@
 # 054060은 한개의 run과 한 개의 triplet 이므로 역시 babygin 이다. (456, 000)
 
 # data = '444345' -> 공백없는 문자열로 입력받는 경우
-# data = list(map(int, input()))
-# c = [0] * 12
-# print(c)
+data = input()  # 공백 없이 문자열로 입력 받기
+c = [0] * 12  # 0부터 9까지의 숫자를 세기 위한 배열
+
+# 데이터를 숫자로 변환해서 카운팅 배열을 채움
+for num in data:
+    c[int(num)] += 1 # c = [0, 0, 0, 1, 4, 1, 0, 0, 0, 0] / 숫자 3은 1번, 숫자 4는 4번, 숫자 5는 1번 나타남
 
 # 2. triplet 조사후 triplet 데이터 완전 삭제
 i = 0
 tri = run = 0
 while i < 10:
-    if c[i] >= 3: # triplet 조사
-        c[i] -= 3 # 이후 삭제
-        tri += 1
-        continue;
-    if c[i] >= 1 and c[i + 1] >= 1 and c[i + 2] >= 1: # run 조사 후 데이터 삭제
+    if c[i] >= 3: # 0에서 9까지 3번이상 등장했는지 조사(triplet 조사)
+        c[i] -= 3 # 3개 1묶음으로 triplet완성했으므로 삭제 
+        tri += 1 #triplet 한세트 증가
+        continue; #만족했으므로 빠져나오기 
+    if c[i] >= 1 and c[i + 1] >= 1 and c[i + 2] >= 1: # run (연달은 인덱스들의 등장) 조사
         c[i] -= 1
         c[i + 1] -= 1
-        c[i + 2] -= 1
-        run += 1
+        c[i + 2] -= 1 # 연달은 3개 숫자 1묶음으로 run완성했으므로 삭제 
+        run += 1 # run 한세트 증가 
         continue
-    i += 1
+    i += 1 #0부터 9까지 탐색하기 위해 1씩 증가 
 
-if run + tri == 2:
+if run + tri == 2: # 무조건 숫자를 6개씩 입력받으므로 한세트씩 2개면 babygin
     print("Baby Gin")
 else:
     print("Lose")
