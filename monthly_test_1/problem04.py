@@ -3,8 +3,31 @@
 # Python 내장 함수 set, sum 등 사용 시 감점
 
 def analyze_items(items_list):
-    pass
     # 여기에 코드를 작성하여 함수를 완성합니다.
+    lsts = []
+    lsts2 = []
+    for x in items_list:
+        if x not in lsts:
+            lsts.append(x)
+        if x in lsts:
+            pass
+    
+    for y in items_list:
+        if int == type(y) and y not in lsts2:
+            lsts2.append(y)
+        if int == type(y) and y in lsts2:
+            pass
+
+    yang = 0
+    eum = 0
+    for z in lsts2:
+        if z > 0:
+            yang += z
+        elif z < 0:
+            eum += z
+    return (lsts, (yang, eum))
+
+
 
 # 추가 테스트를 위한 코드 작성 가능
 # 예) print(함수명(인자))

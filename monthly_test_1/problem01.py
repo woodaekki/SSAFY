@@ -3,8 +3,26 @@
 # Python 내장함수 sum, len, min, max, sorted 또는 리스트 sort 메서드 사용 시 감점
 
 def analyze_likes(weekly_like_list):
-    pass
     # 여기에 코드를 작성하여 함수를 완성합니다.
+    total = 0
+    max_v = -99999999999999
+    min_v = 9999999999999
+
+    # 요구 사항 1
+    for likes in weekly_like_list:
+        total += likes # 좋아요 합계
+
+    # 요구사항 2
+    # 가장 적은 좋아요
+    for min_likes in weekly_like_list:
+        if min_likes < min_v:
+            min_v = min_likes
+    
+    # 가장 많은 좋아요 
+    for max_likes in weekly_like_list:
+        if max_likes > max_v:
+            max_v = max_likes
+    return float(total / 7), max_v - min_v # 평균, 좋아요 수 차이
 
 # 추가 테스트를 위한 코드 작성 가능
 # 예) print(함수명(인자))

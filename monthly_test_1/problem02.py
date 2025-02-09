@@ -3,8 +3,19 @@
 # Python 제공 메서드 count 사용 시 감점
 
 def analyze_treasures(treasure_list, threshold):
-    pass
     # 여기에 코드를 작성하여 함수를 완성합니다.
+    dict = {}
+    cnt = 0
+    for tre in treasure_list:
+        if tre not in dict:
+            dict[tre] = 1
+        else:
+            dict[tre] += 1
+    # print(dict)
+        if dict[tre] > threshold:
+            cnt += 1
+    return f'({dict}, {cnt})'
+    
 
 # 추가 테스트를 위한 코드 작성 가능
 # 예) print(함수명(인자))
