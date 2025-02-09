@@ -10,13 +10,26 @@
 # & 연산자
 # i & (i<<j): i의 j번째 비트가 1인지 아닌지를 검사한다.
 
+# 2진수에서 비트 = 2로 나누어 생기는 나머지들을 거꾸로 배열한 수
 arr = [3, 2, 5, 4]
 
 n = len(arr) # 원소의 개수
 
-for i in range(1 << n): # 1 << n: 부분 집합의 개수
+# 모든 경우의 부분집합 출력하기 
+for i in range(2**n): # 1 << n: 부분 집합의 개수 = 2 ** n
     for j in range(n): # 원소의 수만큼 비트를 비교함
         if i & (1 << j): # i의 j번 비트가 1인 경우 (= 비트가 0이 아닌 경우)
             print(arr[j], end = ",") # j번 원소 출력
         print()
     print()
+
+# 2. 부분집합의 합 구하기
+total_sum = 0  # 부분집합의 합을 담을 변수
+for i in range(2**n):  # 0부터 2^n-1까지 반복 (부분집합의 개수)
+    subset_sum = 0  # 부분집합의 합을 계산할 변수
+    for j in range(n):  # 배열의 각 원소에 대해
+        if i & (1 << j):  # i의 j번째 비트가 1이면, arr[j]를 부분집합에 포함
+            subset_sum += arr[j]  # 해당 원소를 부분집합의 합에 추가
+    total_sum += subset_sum  # 각 부분집합의 합을 전체 합에 더함
+
+print("부분집합들의 합:", total_sum)

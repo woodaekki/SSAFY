@@ -23,6 +23,7 @@ for t in range(1, T+1):
                 subset.append(arr[j])
         # print(subset)
                 subset_sum += arr[j]
+        # print(subset_sum, end = " ")
         
         # 3. 조건을 만족하는 부분집합의 총 개수
         if len(subset) == n and subset_sum == k:  

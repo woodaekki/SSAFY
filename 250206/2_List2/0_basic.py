@@ -13,12 +13,13 @@
 # 7 8 9
 # """
 # # 1. 배열 행과 열의 크기가 같을 때
-# # n = int(input()) # 배열 행과 열의 크기
-# # arr = [list(map(int, input().split())) for _ in range(n)]
-# #
-# # for i in range(n):
-# #     for j in range(n):
-# #         print(arr[i][j])
+# n = int(input()) # 배열 행과 열의 크기
+# arr = [list(map(int, input().split())) for _ in range(n)]
+
+# for i in range(n):
+#     for j in range(n):
+#         print(arr[i][j])
+
 
 # """
 # 3 4
@@ -57,36 +58,28 @@
 # #         s += arr[i][j]
 # #         print(s)
 
-# # 4. 지그재그 순회
-# # n, m = map(int, input().split())
-# # arr = [list(map(int, input().split())) for _ in range(n)]
-# #
-# # for i in range(n): # i를 고정시켜놓고
-# #     for j in range(m):
-# #         if: # 짝수일때 오른쪽으로
-# #         else: # 홀수일때 왼쪽으로
-# #             print(zigzag)
 
-# 5. 4방향의 인접 요소를 탐색하기
+# 4. 4방향의 인접 요소를 탐색하기
+# (0, 0)에서 가능한 인접좌표
+# (0, 1)에서 가능한 인접좌표
+# (0, 2)에서 가능한 인접좌표....
 n, m = 2, 3
-directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+directions = [[0, 1], [1, 0], [0, -1], [-1, 0]] # 시계 방향으로
 for i in range(n):
     for j in range(m):
         for di, dj in directions:
             ni, nj = i+di, j+dj
-            if 0 <= ni < n and 0 <= nj < m:
+            if 0 <= ni < n and 0 <= nj < m: # 인접좌표가 열행에서 벗어나는 경우는 제외하기
                 print(ni, nj)
 
-# 6. 상하좌우 k칸의 합계 중 최댓값
-
-# 7. 전치 행렬
+# 5. 전치 행렬
 arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 for i in range(3):
     for j in range(3):
         if i < j:
             arr[i][j], arr[j][i] = arr[j][i], arr[i][j]
 
-# 8. i,j의 크키에 따라 접근하는 원소 비교 (교재 참고)
+# 7. i,j의 크기에 따라 접근하는 원소 비교 (교재 참고)
 
 
 

@@ -4,13 +4,21 @@
 import sys
 sys.stdin = open("count1.txt", "r")
 
-T = 1
-
+T = int(input())  # 테스트 케이스 개수
 for t in range(1, T + 1):
-    n = int(input())  # 수열의 길이
-    arr = list(map(int, input().split()))  # 수열 입력 받기
-
-    count = 0
+    n = int(input())
+    arr = list(map(int, input()))
+    
+    cnt = 0  # 현재 연속된 1의 개수 저장
+    max_cnt = 0
+    for i in range(n):
+        if arr[i] == 1:
+            cnt += 1  # 1이면 증가
+            if cnt > max_cnt:
+                max_cnt = cnt
+        else:
+            cnt = 0  # 0을 만나면 초기화
+    print(f'#{t} {max_cnt}')
 
     
 

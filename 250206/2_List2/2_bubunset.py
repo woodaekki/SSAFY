@@ -13,7 +13,10 @@ for row in range(n):
 
         # 상단의 좌표
         newr = row - 1
+        # print(newr)
         newc = col
+        # print(newc)
+        # print(arr[newr][newc])
         if 0 <= newr < n and 0 <= newc < n:
             sumv += arr[newr][newc] - arr[row][col]
 
@@ -22,4 +25,3 @@ for row in range(n):
         newc = col
         if 0 <= newr < n and 0 <= newc < n:
             sumv += arr[newc][newr] - arr[col][row]
-
