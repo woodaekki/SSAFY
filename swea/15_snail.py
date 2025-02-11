@@ -16,7 +16,7 @@ def snail():
 
         # 새로운 위치가 배열의 범위를 벗어나거나 이미 채워져 있으면 방향 전환
         if newr < 0 or newr >= n or newc < 0 or newc >= n or arr[newr][newc] != 0:
-            d = (d + 1) % 4  # 방향을 시계방향으로 전환
+            d = (d + 1) % 4  # 방향을 시계방향으로 전환 (0부터 3까지, 우하좌상)
         row += directions[d][0]
         col += directions[d][1]
     return n, arr # 튜플로 받았으니
