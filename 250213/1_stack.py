@@ -5,24 +5,47 @@
 # .isEmpty 는 공백인지 아닌지 확인하는 연산
 # .peek 은 top 에 있는 원소를 반환하는 연산
 
-# 간단한 스택 구현
+def push(value):
+    global top
+    top += 1
+    stack[top] = value
+
+def pop():
+    global top
+    value = stack[top]
+    top -= 1
+    return stack[top]
+
+def is_full():
+    return top == size -1
+
+def is_empty():
+    # if top == -1:
+    #     return True
+    # else:
+    #     return False
+    return top == -1
+
+def peek():
+    return stack[top]
+
+size = 10
+stack = [-1] * size
 top = -1
-stack = [0] * 10
 
-top += 1 # push(1)
-stack[top] = 1
+push(3)
+print(top, stack)
 
-top += 1 # push(2)
-stack[top] = 2
+push(4)
+print(top, stack)
 
-top += 1 # push(3)
-stack[top] = 3
+push(10)
+print(top, stack)
+print(pop())
 
-top -= 1 # pop
-print(stack[top+1])
+a = pop()
+print(a)
+print(top, stack)
 
-top -= 1 # pop
-print(stack[top+1])
-
-top -= 1 # pop
-print(stack[top+1])
+print(pop())
+print(top, stack)
