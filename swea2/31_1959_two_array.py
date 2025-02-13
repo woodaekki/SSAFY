@@ -7,22 +7,28 @@ sys.stdin = open("two.txt", "r")
 # 큰 합을 반환 
 
 def two():
-    a, b = list(map(int, input().split()))  # arr_a와 arr_b의 길이
+    a, b = map(int, input().split())  # arr_a와 arr_b의 길이
     arr_a = list(map(int, input().split()))
     arr_b = list(map(int, input().split()))
 
-    max_sum = -9999999999 
+    if len(arr_a) > len(arr_b):
+        a, b = b, a
 
-    # for i in range(abs(a - b) + 1):  
-    #     sumv = 0  
-    #     for j in range(min(a, b)):  
-    #         if 0 <= i + j < b and 0 <= j < a:
-    #             sumv += arr_a[j] * arr_b[i + j]
-        
-        if max_sum < sumv:
-            max_sum = sumv
+    # i = 0일때,
+    # arr_a[0]과 arr_b[0+0] 곱함
+    # arr_a[1]과 arr_b[0+1] 곱함
 
-    return max_sum
+    # i = 1일때,
+    # arr_a[0]과 arr_b[1+0] 곱함
+    # arr_a[1]과 arr_b[1+1] 곱함
+
+    for i in range(b-a+1):
+        sumv = 0
+        for j in range(len(arr_a)):
+            sumv += arr_a[j] * b[i+j]
+        maxv = max(maxv, sumv)
+    return maxv
+
 
 T = int(input())  # 테스트 케이스 개수
 for t in range(1, T + 1):
