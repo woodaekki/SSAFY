@@ -1,20 +1,30 @@
 import sys
 sys.stdin = open("color.txt", "r")
 
-T = int(input()) # 테스트 케이스 입력
-for t in range(1, T+1):
-    n = int(input())  # 칠할 영역의 개수
-    arr = [[0] * 10 for _ in range(10)] # 빈 리스트 10x10로 초기화
-    count = 0
-    for _ in range(n): # 칠할 영역을 n줄 만큼 받는다.
-        r1, c1, r2, c2, color = map(int, input().split()) #순서대로 r1 ~ color을 입력받는다.
-        for i in range(r1, r2 + 1): #열과
-            for j in range(c1, c2 + 1): #행을 순회하면서
-                arr[i][j] += color # arr에 색을 칠함
-                # 같은 영역에 같은 색을 칠하는 케이스는 없으므로
-    # print(arr)
+def coloring():
+    arr = [[0] * 10 for _ in range(10)] # 빈 리스트 생성
+    cnt = 0
+    n = int(input()) # 몇줄 받을 건지 
+
+    for _ in range(n):
+        r1, r2, c1, c2, color = list(map(int, input().split())) 
+
+        # 빨강, 파랑 칠하기
+        for i in range(r1, c1+1):
+            for j in range(r2, c2+1):
+                if color == 1:
+                    arr[i][j] += 1
+                elif color == 2:
+                    arr[i][j] += 2
+        
+    # 보라 칸 세기
     for k in range(10):
         for l in range(10):
             if arr[k][l] == 3:
-                count += 1
-    print(f'#{t} {count}')
+                cnt += 1
+
+    return cnt
+    
+T = int(input())
+for t in range(1, T+1):
+    print(f'#{t} {coloring()}')
