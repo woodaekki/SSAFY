@@ -5,10 +5,9 @@ def forcaster(h, w, arr):
         for j in range(w):
             if arr[i][j] == 'c':
                 new_arr[i][j] = 0
-                k = j+1
-                while k < w and arr[i][k] == '.':
-                    new_arr[i][k] = new_arr[i][k-1] + 1
-                    k += 1
+                while j+1 < w and arr[i][j+1] == '.':
+                    new_arr[i][j+1] = new_arr[i][j+1-1] + 1
+                    j+1 += 1
     return new_arr         
 
 h, w = map(int, input().split())
