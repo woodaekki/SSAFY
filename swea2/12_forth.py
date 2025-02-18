@@ -7,7 +7,7 @@ def forth():
     mix_lst = []  # 숫자-> 연산자
 
     for i in arr:
-        # 후위표기법으로 변환환
+        # 후위표기법으로 변환
         if i.isdigit():  
             num_lst.append(int(i))  
             mix_lst.append(int(i))  
@@ -19,7 +19,7 @@ def forth():
             b = num_lst.pop()  
             a = num_lst.pop()
 
-            # 마지막 2개빼서 계산하고 다시 넣기
+            # 마지막 2개 빼서 계산하고 다시 넣기
             if i == '+':
                 num_lst.append(a + b)
             elif i == '-':
@@ -27,7 +27,7 @@ def forth():
             elif i == '*':
                 num_lst.append(a * b)
             elif i == '/':
-                if b == 0: #zerodivionerror 막기 !
+                if b == 0: #zerodivisionerror 막기 !
                     return 'error'
                 num_lst.append(a // b) 
         elif i == '.':  
