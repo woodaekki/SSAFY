@@ -38,7 +38,6 @@ def per(k):
         print(result)
         return
 
-
     for i in range(N):
         if not visited[i]:
             result[k] = i
