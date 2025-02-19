@@ -1,37 +1,58 @@
 import sys
 sys.stdin = open("calculator2.txt", "r")
 
-def calculator2():
-    n = int(input())
-    arr = list(input())
+def calculator2(s):
+    result = []
+    stack = []
+    isp = {'+':1, '-':1, '*':2, '/':2, '(':0} # 스택 안
+    icp = {'+':1, '-':1, '*':2, '/':2, '(':3} # 스택 밖 
+ 
+    for c in s:
+        if c.isdigit(): # 피연산자
+            result.append(c)
+        elif c == ')':
+            while stack and stack[-1] != '(':
+                result.append(stack.pop(-1))
+            stack.pop(-1)
+        else: # 연산자
+            if not stack or isp[stack[-1]] < icp[c]:
+                stack.append(c)
+            else:
+                while stack and isp[stack[-1]] >= icp[c]:
+                    result.append(stack.pop(-1))
+                stack.append(c)
+    while stack:
+        result.append(stack.pop(-1))
+ 
+    return result
+ 
+def cal(op1, op2, ope):
+    if ope == '+':
+        return op2 + op1
+    if ope == '-':
+        return op2 - op1
+    if ope == '*':
+        return op2 * op1
+    if ope == '/':
+        return op2 // op1
+ 
+ 
+def step2(lst):
+    stack = []
+    for c in lst:
+        if c.isdigit():
+            stack.append(int(c))
+        else:
+            value1 = stack.pop(-1)
+            value2 = stack.pop(-1)
+            stack.append(cal(value1, value2, c))
+ 
+    return stack.pop(-1)
+ 
+for t in range(1, 11):
+    N = int(input())
+    s = list(input())
+ 
+    post_order = calculator2(s)
+    print(f'#{t} {step2(post_order)}')
 
-    priority = {'*': 2, "+": 1}
-    num_list = [] # 숫자만
-    mix_list = [] # 숫자 -> 연산자
-
-    # 후위 표기식으로 변환
-    for i in arr:
-        if i.isdigit():
-            num_list.append(int(i))
-            mix_list.append(int(i))
-
-    for j in arr:
-        if j == '+' or j == '*':
-            mix_list.append(j)
-
-    for k in range(n):
-        if mix_list[k] == '+':
-            a = num_list.pop()
-            b = num_list.pop()
-            num_list.append(a+b)
-
-        elif mix_list[k] == '*':
-            a = num_list.pop()
-            b = num_list.pop()
-            num_list.append(a*b)
-
-    return num_list
-
-T = 10
-for t in range(1, T+1):
-    print(f'#{t} {calculator2()}')
