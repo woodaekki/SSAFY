@@ -23,16 +23,16 @@ def dfs(v, end): # 현재노드, 종점 노드
                 break
 
 
-V, E = map(int, input().split()) # 노드의 수, 간선의 수
+n, m, r = map(int, input().split()) # 노드의 수, 간선의 수, 시작정점
 graph = list(map(int, input().split()))
-ad_list = [[] for _ in range(V+1)]
+ad_list = [[] for _ in range(n+1)]
 
-for i in range(E):
-    v, w = graph[i*2], graph[i*2+1] # 연결 노드 정보, 12/13/24/25...(그래프의 0, 1번..0, 1 계속 받아오기)
+for i in range(m):
+    v1, v2 = graph[i*2], graph[i*2+1] # 노드 연결 정보
 
     # 양방향
-    ad_list[v].append(w)
-    ad_list[w].append(v)
+    ad_list[v1].append(v2)
+    ad_list[v2].append(v1)
 
-dfs(1, V) # 1번부터 모든 노드를 탐색해라
+dfs(r,n) # 1번부터 모든 노드를 탐색해라
 print(graph)

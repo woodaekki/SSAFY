@@ -16,7 +16,7 @@ def stove():
             oven.append((index, cheese))
         else:
             # 치즈가 0이면, 대기 중인 다음 피자 오븐에 넣기
-            if waiting_pizza < m:  # 피자를 다 넣었다면
+            if waiting_pizza < m:  # 아직 대기 중인 피자 있으면
                 # 새로운 피자 넣기 (대기중인 피자 인덱스, 치즈량 넣기)
                 oven.append((waiting_pizza, cheezes[waiting_pizza]))
                 waiting_pizza += 1  # 대기 중인 다음 피자 번호 갱신
