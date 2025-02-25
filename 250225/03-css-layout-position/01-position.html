@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 1500px;
+    }
+    
+    /* 페이지의 특정 항목을 배치할때 배치 */
+    .container {
+      position: relative;
+      height: 300px;
+      width: 300px;
+      border: 1px solid black;
+    }
+
+    .box {
+      height: 100px;
+      width: 100px;
+      border: 1px solid black;
+    }
+
+    .static {
+      /* 기본값 */
+      position: static;
+      background-color: lightcoral;
+    }
+
+    .absolute {
+      /* 절대 위치 */
+      /* 본인의 위치 버리고, 가까운 relative 부모 요소 기준으로 이동 */
+      /* 없을 시엔 body를 기준으로 이동*/
+      /* 다른 레이아웃에 영향 미치므로 주의*/
+
+      /* 예시: 썸네일 재생시간 위치 고정 */
+      position: absolute;
+      background-color: lightgreen;
+      top: 100px;
+      left: 100px;
+    }
+
+    .relative {
+      /* 상대 위치 */
+      position: relative;
+      background-color: lightblue;
+      /* 본인 자리(static) 기준으로 위쪽, 왼쪽에 공간 100, 따라서 아래로, 오른쪽으로 100 이동 */
+      /* 다른 레이아웃에 영향 xxx */
+      top: 100px;
+      left: 100px;
+    }
+
+    .fixed {
+      position: fixed;
+      background-color: gray;
+      /* 화면에 우측 상단자리에 고정 */
+      /* 예시: 스크롤 버튼 */
+      top: 0;
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box static">Static</div>
+    <div class="box absolute">Absolute</div>
+    <div class="box relative">Relative</div>
+    <div class="box fixed">Fixed</div>
+  </div>
+</body>
+
+</html>
