@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open("calcu.txt", "r")
+sys.stdin = open("calc.txt", "r")
 
 def calcu2(arr):
     # 스택(연산자의 우선순위를 구분하기 위함)
