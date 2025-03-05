@@ -1,51 +1,43 @@
-# import sys
-# sys.stdin = open("9midtree.txt", "r")
+import sys
+sys.stdin = open("9midtree.txt", "r")
 
-def midtree(T):
+def midtree(node):
+    # 왼쪽이나 오른쪽이 없을 경우
+    if type(cal[node]) == int:  # cal[node]가 숫자일 경우
+        return cal[node] # 그 숫자 그대로 
+
     # 왼쪽, 부모, 오른쪽 순으로 호출
-    if T:
-        midtree(left[T])
-        read.append(value[T])
-        midtree(right[T])
-    return "".join(read)
+    a = midtree(left[node])
+    b = midtree(right[node])
+    
+    if type(arr[1]) == str:
+        if cal[node] == '+':
+            return a + b
+        elif cal[node] == '-':
+            return a - b
+        elif cal[node] == '*':
+            return a * b
+        elif cal[node] == '/':
+            return a / b
 
 T = 10
 for t in range(1, T+1):
     n = int(input()) # 노드 수
     left = [0] * (n+1)
     right = [0] * (n+1)
-    value = [0] * (n+1)
-    read = []
+    cal = [0] * (n+1)
     for _ in range(n):
-        arr = list(map(str, input().split()))
-        # p, p_val, l, r (p, p번에 들어갈 값, p의 왼쪽 자식, p의 오른쪽 자식
-        # 완전 이진 트리
-        if len(arr) == 4:
-            p = int(arr[0])
-            p_val = arr[1]
-            l = int(arr[2])
-            r = int(arr[3])
-            value[p]=p_val
-            left[p] = l  # 왼쪽 자식 번호 저장
-            right[p] = r
-        if len(arr) == 3:
-            p = int(arr[0])
-            p_val = arr[1]
-            l = int(arr[2])
-            r = 0
-            value[p] = p_val
-            left[p] = l  # 왼쪽 자식 번호 저장
-            right[p] = r
-        if len(arr) == 2:
-            p = int(arr[0])
-            p_val = arr[1]
-            l = 0
-            r = 0
-            value[p] = p_val
-            left[p] = l  # 왼쪽 자식 번호 저장
-            right[p] = r
-
-    result = midtree(1)
-    print(f'#{t} {result}')
+        arr = list(map(str, input().split())) # 루트,연산자,왼쪽,오른쪽
+        root = int(arr[0])
+        # 연산자이면 
+        if arr[1] == '+' or arr[1] == '-' or arr[1] == '*' or arr[1] == '/':
+            cal[root] = arr[1]
+            left[root] = int(arr[2])
+            right[root] = int(arr[3])
+        else:
+            cal[root] = int(arr[1])       
+    # print(left,right,cal)
+    result = midtree(1) # 1번 노드부터 계산 
+    print(f'#{t} {int(result)}') # 소수점 버림 처리 
 
 
