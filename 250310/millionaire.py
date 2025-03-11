@@ -7,9 +7,6 @@ def millionaire():
     for i in range(n):
         max_arr = max(max_arr, arr[i])
 
-
-
-
 T = int(input())
 for t in range(1, T+1):
     n = int(input())
