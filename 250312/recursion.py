@@ -5,7 +5,7 @@ def recur(row, col):
     global result
     # 도착하면 좌표의 최소합 구하기
     if row == n-1 and col == n-1:
-        # print(path)
+        print(path)
         sumv = 0
         for row, col, value in path:
             sumv += value
