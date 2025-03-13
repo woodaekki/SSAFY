@@ -2,23 +2,30 @@ import sys
 sys.stdin = open("2.txt", "r")
 
 def grade(grades):
-    reversed_grades = sorted(grades, reverse=True)
+    origin = []
+    # 원본 학생의 인덱스 번호와 점수 저장하기 
+    for idx in range(n):
+        origin.append((idx+1, grades[idx])) # 학생 번호는 1번부터!
 
-    j = n // 10
-    # student = {'A+': 0, 'A0': 0, 'A-': 0, 'B+': 0, 'B0': 0, 'B-': 0, 'C+': 0, 'C0': 0, 'C-': 0, 'D0': 0}
-
-    # score = ['A+', 'A0', 'A-', 'B+', 'B0', 'B-', 'C+', 'C0', 'C-', 'D0'] * j
-    # score.sort()
-    # print(score)
-    # for j in range(n):
-    #     student[score[j]] = reversed_grades[j]
-    # print(student)
-
-    # answer = ""
-    # for key, value in student.items():
-    #     if value == grades[k-1]:
-    #         answer = key
-
+    # 총점 정렬하기 
+    total = sorted(origin, key=lambda x: x[1], reverse=True) # 총점을 기준으로 정렬렬 
+    # print(total)
+    score = ["A+", "A0", "A-", "B+", "B0", "B-", "C+", "C0", "C-", "D0"]
+    score_ratio = n // 10
+    
+    # 각 등급을 score_ratio만큼 늘리기 
+    expanded_scores = []
+    for sc in score:
+        expanded_scores += [sc] * score_ratio
+    print(expanded_scores)
+    
+    # 학생들에게 성적 부여하기
+    student_grades = {}
+    for i in range(n):
+        student_grades[total[i][0]] = expanded_scores[i]
+    
+    # k번 학생의 학점 반환
+    return student_grades[k]
 
 T = int(input())
 for t in range(1, T+1):
