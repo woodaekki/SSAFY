@@ -14,32 +14,33 @@ path = []
 used = [0] * 6
 baby_gin_result = False
 
-def is_baby_gin():
-    cnt = 0
-    # run + triplet 개수의 합 = 2
-    # 앞쪽 숫자 3개 체크
-    a, b, c = path[0], path[1], path[2]
-    if a == b == c:  # triplet
-        cnt += 1
-    elif a == (b-1) == (c-2):   # run
-        cnt += 1
-
-    # 뒤 쪽 숫자 3개 체크
-    a, b, c = path[3], path[4], path[5]
-    if a == b == c:  # triplet
-        cnt += 1
-    elif a == (b-1) == (c-2):   # run
-        cnt += 1
-
-    return cnt == 2
+# def is_baby_gin():
+#     cnt = 0
+#     # run + triplet 개수의 합 = 2
+#     # 앞쪽 숫자 3개 체크
+#     a, b, c = path[0], path[1], path[2]
+#     if a == b == c:  # triplet
+#         cnt += 1
+#     elif a == (b-1) == (c-2):   # run
+#         cnt += 1
+#
+#     # 뒤 쪽 숫자 3개 체크
+#     a, b, c = path[3], path[4], path[5]
+#     if a == b == c:  # triplet
+#         cnt += 1
+#     elif a == (b-1) == (c-2):   # run
+#         cnt += 1
+#
+#     return cnt == 2
 
 
 def recur(cnt):
-    global baby_gin_result
+    # global baby_gin_result
     if cnt == 6:
+        print(path)
         # baby-gin 인지 검사
-        if is_baby_gin():
-            baby_gin_result = True
+        # if is_baby_gin():
+        #     baby_gin_result = True
         return
 
     for idx in range(6):
@@ -59,4 +60,4 @@ def recur(cnt):
 arr = [1, 2, 3, 4, 5, 8]
 recur(0)
 
-print('YES') if baby_gin_result else print('NO')
+# print('YES') if baby_gin_result else print('NO')
