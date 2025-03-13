@@ -3,11 +3,15 @@ sys.stdin = open("2.txt", "r")
 
 def grade(grades):
     reversed_grades = sorted(grades, reverse=True)
-    # print(top_ten)
-    student = {'A+': 0, 'A0': 0, 'A-': 0, 'B+': 0, 'B0': 0, 'B-': 0, 'C+': 0, 'C0': 0, 'C-': 0, 'D0': 0}
-    score = ['A+', 'A0', 'A-', 'B+', 'B0', 'B-', 'C+', 'C0', 'C-', 'D0']
-    for j in range(n):
-        student[score[j]] = reversed_grades[j]
+
+    j = n // 10
+    # student = {'A+': 0, 'A0': 0, 'A-': 0, 'B+': 0, 'B0': 0, 'B-': 0, 'C+': 0, 'C0': 0, 'C-': 0, 'D0': 0}
+
+    # score = ['A+', 'A0', 'A-', 'B+', 'B0', 'B-', 'C+', 'C0', 'C-', 'D0'] * j
+    # score.sort()
+    # print(score)
+    # for j in range(n):
+    #     student[score[j]] = reversed_grades[j]
     # print(student)
 
     # answer = ""
