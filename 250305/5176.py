@@ -16,6 +16,6 @@ for t in range(1, T + 1):
     tree = [0] * (n + 1)
     num = 1
     midtree(1)
-    # print(tree)
+    print(tree)
     print(f'#{t} {tree[1]} {tree[n//2]}')
 
