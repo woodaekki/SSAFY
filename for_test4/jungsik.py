@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open("tree.txt", "r")
+# import sys
+# sys.stdin = open("tree.txt", "r")
 
 def bank(two, three):
     # 2진수 가능 리스트 
@@ -27,7 +27,7 @@ def bank(two, three):
     for num in change_twolst:
         if num in change_threelst:
             common = num
-    return common
+    return change_threelst
 
 T = int(input())  # 테스트 케이스 개수
 for t in range(1, T + 1):
