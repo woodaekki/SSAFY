@@ -17,13 +17,13 @@ def grade(grades):
     expanded_scores = []
     for sc in score:
         expanded_scores += [sc] * score_ratio
-    print(expanded_scores)
+    # print(expanded_scores)
     
     # 학생들에게 성적 부여하기
     student_grades = {}
     for i in range(n):
         student_grades[total[i][0]] = expanded_scores[i]
-    
+    # print(student_grades)
     # k번 학생의 학점 반환
     return student_grades[k]
 
