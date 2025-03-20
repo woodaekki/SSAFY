@@ -3,6 +3,7 @@ sys.stdin = open("group.txt", "r")
 
 def find_set(parents, x):
     # print(f"find_set({x}) 호츌")
+    # 경로 압축
     if parents[x] == x:  # 부모랑 자기자신이랑 같으면 암거나 반환
         return parents[x]
 
