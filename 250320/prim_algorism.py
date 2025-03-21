@@ -40,7 +40,6 @@ import heapq
 V, E = map(int, input().split())
 graph = [[0] * V for _ in range(V)]  # 인접 행렬
                                      # [선택과제] 인접 리스트로 구현
-
 for _ in range(E):
     start, end, weight = map(int, input().split())
     graph[start][end] = weight
