@@ -1,7 +1,6 @@
 import sys
 sys.stdin = open("1.txt", "r")
 
-
 # 분할
 def dividing(left, right):
     pivot = arr[left]  # 피벗은 항상 가장 왼쪽 원소
@@ -37,7 +36,6 @@ T = int(input())
 for t in range(1, T + 1):
     n = int(input())
     arr = list(map(int, input().split()))
-
     print(f"Test case #{t}: arr={arr}")
     quick_sort(0, n - 1)
     print(f"Sorted arr={arr}")
