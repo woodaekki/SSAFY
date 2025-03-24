@@ -6,3 +6,6 @@ def index(request):
 
 def list_article(request):
     return render(request, "list_article.html")
+
+def hello(request):
+    return render(request, "hello.html")
