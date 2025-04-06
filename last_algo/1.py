@@ -1,29 +1,33 @@
-def winner(cards):
-    m = len(cards)
-    for j in range(m-2):
-        if cards[j] > 0 and cards[j+1] > 0 and cards[j+2] > 0:
-            return True
-        if cards[j] >= 3:
-            return True
-    return False
 
-def babygin(arr):
-    player1 = [0] * 10
-    player2 = [0] * 10
+def find_set(x):
+    if x == parents[x]:
+        return parents[x]
+    else:
+        parents[x] = find_set(parents[x])
+        return parents[x]
 
-    for i in range(len(arr)):
-        if i % 2 == 0:
-            player1[arr[i]] += 1
-            if winner(player1):
-                return 1
+def union_set(x, y):
+    ref_x = find_set(x)
+    ref_y = find_set(y)
+
+    if ref_x == ref_y:
+        return
+    else:
+        if ref_x > ref_y:
+            parents[ref_y] = ref_x
         else:
-            player2[arr[i]] += 1
-            if winner(player2):
-                return 2
-    return 0
+            parents[ref_x] = ref_y
 
 T = int(input())
 for t in range(1, T+1):
+    n, m = list(map(int, input().split()))
     arr= list(map(int, input().split()))
-    result = babygin(arr)
-    print(f'#{t} {result}')
+    parents = [i for i in range(n+1)]
+    for i in range(0, len(arr), 2):
+        union_set(arr[i], arr[i+1])
+
+    group = set()
+    for j in range(1, n+1):
+        group.add(find_set(j))
+
+    print(f'#{t} {len(group)}')
