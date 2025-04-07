@@ -137,6 +137,7 @@ ORDER BY
 
 
 -- 03-7. IN 연산자 
+-- IN, ==는 딱 정확히 저 글자만 있는 데이터 조회할 때 
 SELECT 
   LastName, FirstName, Country
 FROM
@@ -157,6 +158,7 @@ WHERE
   Country NOT IN ('Canada', 'Germany', 'France');
 
 -- 03-8. LastName이 son으로 끝나는 데이터의 성과 이름 조회 
+-- LIKE 는 IN, ==과 다르게 특정 글자가 포함되기만 하면 됨
 SELECT 
   LastName, FirstName
 FROM
