@@ -1,6 +1,3 @@
-import sys
-sys.stdin = open("2.txt", "r")
-
 def find_set(x):
     if parents[x] == x:
         return parents[x]
@@ -21,12 +18,20 @@ def union_set(x, y):
             parents[ref_x] = ref_y
 
 T = int(input())
-for t in range(1, T + 1):
+for t in range(1, T+1):
     V, E = list(map(int, input().split()))
     parents = [i for i in range(V+1)]
     edges = []
-    for i in range(E):
+    for _ in range(E):
         n1, n2, weight = list(map(int, input().split()))
         edges.append((n1, n2, weight))
-
-    print(total)
+    edges.sort(key=lambda x:x[2])
+    cnt = total = 0
+    for u, v, w in edges:
+        if find_set(u) != find_set(v):
+            union_set(u, v)
+            cnt += 1
+            total += w
+        if cnt == V:
+            break
+    print(f'#{t} {total}')
