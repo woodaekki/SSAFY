@@ -1,9 +1,16 @@
 import sys
 sys.stdin = open("2.txt", "r")
 
-while True:
-    try:
-        arr = input()
-        print(arr)
-    except EOFError:
-        break
+n, m = list(map(int, input().split()))
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+
+total = max(len(a), len(b))
+cnt = cnt2 = 0
+
+
+
+
+
+
+
