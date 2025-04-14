@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import socket
 
 HOST = '127.0.0.1'
@@ -57,22 +56,3 @@ while game_data is not None:
 
     # 강제 종료(통신테스트용)
     break
-
-# 반복문을 빠져나왔을 때 배틀싸피 메인 프로그램과의 연결을 완전히 해제하기 위해 close 함수 호출
-close()
-=======
-import sys
-sys.stdin = open("2.txt", "r")
-
-tc = int(input())
-T = int(input())
-result = ""
-for _ in range(T):
-    arr = input().split()
-    n = int(arr[1])
-    result += arr[0] * n
-print(result)
-for i in range(len(result)//10):
-    scope = result[0:i]
-    print(scope)
->>>>>>> 3fa5eee063b781d215dc44d9c691a7c82afc1765
