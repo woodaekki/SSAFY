@@ -12,7 +12,7 @@ def solve():
             cnt = 0
     # 끝까지 1인 경우
     max_cnt = max(max_cnt, cnt)
-    return max_cnt
+    return max_cngit rm --cached 03-pjt
 
 T = int(input())
 for t in range(1, T+1):
