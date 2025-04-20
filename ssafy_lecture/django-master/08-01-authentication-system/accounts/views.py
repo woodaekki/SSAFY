@@ -7,7 +7,6 @@ from django.contrib.auth import logout as auth_logout
 def login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
-        # form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             # auth_login(request, 로그인 인증된 유저 객체)
             auth_login(request, form.get_user())
