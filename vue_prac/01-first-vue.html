@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <button v-on:click="count++"> Count is {{ count }} </button>
+  </div>
+  <!-- vue cdn -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    // console.log(Vue)
+    // Vue.createApp()
+    // const createApp = Vue.createApp
+    // console.log(createApp)
+    const {createApp, ref} = Vue
+    const app = createApp({
+      setup() {
+        const message = ref('hello, Vue')
+        const count = ref(0)
+        count.value += 1
+        return {
+          // message: message
+          message,
+          count 
+        }
+      }
+    })
+
+    app.mount('#app')
+
+  </script>
+</body>
+</html>
