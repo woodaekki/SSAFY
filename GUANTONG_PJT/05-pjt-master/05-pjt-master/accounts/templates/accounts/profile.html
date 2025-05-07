@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <div>
+        <h1>{{user_user}}님의 프로필 페이지</h1>
+        <div>
+            <p>팔로잉 : {{ user_user.followings.count }} / 팔로워 : {{ user_user.followers.count }}</p>
+            {% if request.user != user_user %}
+            <form action="{% url "accounts:follow" user_user.pk %}" method = 'POST'>
+              {% csrf_token %}
+              {% if request.user in user_user.followers.all %}
+              <input type="submit" value="UnFollow">
+              {% else %}
+              <input type="submit" value="Follow">
+              {% endif %}
+            </form>
+            {% endif %}
+        </div>
+    </div>
+
+    <br>
+    <p>회원 번호: {{user_user.pk}}</p>
+    <p>유저 이름: {{user_user}}</p>
+    {% for board in boards %}
+    <p>가입 날짜: {{board.created_at}}</p>
+    {% endfor %}
+    <hr>
+
+    <h1>유저가 쓴 글</h1>
+    <br>
+    <ul>
+        {% for board in boards %}
+        <li>글 번호: {{board.pk}}</li>
+        <a href="{% url "boards:detail" board.pk%} "><p>글 제목: {{board.title}}</p></a>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h1>유저가 쓴 댓글</h1>
+    <br>
+    {% for comment in comments %}
+    <p>{{comment.content}}</p>
+    {% endfor %}
+
+    <hr>
+
+    <h1>팔로워</h1>
+    <br>
+    <ul>
+        {% for follower in user_user.followers.all %}
+        <li>{{ follower }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+
+{% endif %}
+{% endblock content %}

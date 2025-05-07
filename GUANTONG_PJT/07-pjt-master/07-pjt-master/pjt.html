@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <title>은행 검색 애플리케이션</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <style>
+    .box {
+      display: flex;
+    }
+
+    .navbar,
+    .button-color {
+      background-color: #f87d44;
+    }
+
+    #button-color {
+      background-color: #f87d44;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container-fluid justify-content-center">
+      <a class="navbar-brand text-white text-center" href="#">PJT07- 은행 검색 애플리케이션</a>
+    </div>
+  </nav>
+
+  <div class="text-start m-3">
+    <p data-bs-toggle="collapse" href="#dropdownMenu" role="button" aria-expanded="false" aria-controls="dropdownMenu"
+      style="cursor: pointer;">은행 찾기</p>
+    <hr class="border border-danger-subtle">
+  </div>
+
+  <div class="box">
+    <div class="collapse" id="dropdownMenu">
+      <div class="dropdown mt-2">
+        <p class="ms-2 mb-0">광역시 / 도</p>
+        <button class="m-2 btn btn-light-subtle border border-danger-subtle dropdown-toggle" style="width: 230px;"
+          type="button" id="sidoDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          광역시/도를 선택하세요.
+        </button>
+        <ul class="dropdown-menu" id="sidoMenu" aria-labelledby="sidoDropdown"></ul>
+      </div>
+      <div class="dropdown mt-2">
+        <p class="ms-2 mb-0">시 / 군 / 구</p>
+        <button class="m-2 btn btn-light-subtle border-danger-subtle dropdown-toggle" style="width: 230px;"
+          type="button" id="gunguDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          시/군/구를 선택하세요.
+        </button>
+        <ul class="dropdown-menu" id="gunguMenu" aria-labelledby="gunguDropdown"></ul>
+      </div>
+      <div class="dropdown mt-2">
+        <p class="ms-2 mb-0">은행</p>
+        <button class="m-2 btn btn-light-subtle border-danger-subtle dropdown-toggle" style="width: 230px;"
+          type="button" id="bankDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          은행을 선택하세요.
+        </button>
+        <ul class="dropdown-menu" id="bankMenu" aria-labelledby="bankDropdown"></ul>
+      </div>
+      <br>
+      <button type="button" id="button-color" class="m-2 text-white" style="width: 230px; height: 40px; border-radius: 3%;">찾기</button>
+    </div>
+    <div id="map" style="width:100%;height:350px;"></div>
+  </div>
+</body>
+
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e258d582e93aafacb6174dcf18c5388c&libraries=services"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let mapData = null;
+    let map, ps;
+    let markers = [];
+    let infowindows = [];
+
+    fetch('data.json')
+      .then(res => res.json())
+      .then(data => {
+        mapData = data.mapInfo;
+
+        const bankMenu = document.getElementById('bankMenu');
+        data.bankInfo.forEach(bank => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.className = 'dropdown-item'; a.href = '#'; a.textContent = bank;
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('bankDropdown').textContent = bank;
+          });
+          li.appendChild(a); bankMenu.appendChild(li);
+        });
+
+        const sidoMenu = document.getElementById('sidoMenu');
+        mapData.forEach(item => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.className = 'dropdown-item'; a.href = '#'; a.textContent = item.name;
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('sidoDropdown').textContent = item.name;
+            const gunguMenu = document.getElementById('gunguMenu');
+            gunguMenu.innerHTML = '';
+            item.countries.forEach(country => {
+              const li2 = document.createElement('li');
+              const a2 = document.createElement('a');
+              a2.className = 'dropdown-item'; a2.href = '#'; a2.textContent = country;
+              a2.addEventListener('click', e2 => {
+                e2.preventDefault();
+                document.getElementById('gunguDropdown').textContent = country;
+              });
+              li2.appendChild(a2); gunguMenu.appendChild(li2);
+            });
+          });
+          li.appendChild(a); sidoMenu.appendChild(li);
+        });
+
+        const mapContainer = document.getElementById('map');
+        const mapOption = { center: new kakao.maps.LatLng(37.49818, 127.027386), level: 3 };
+        map = new kakao.maps.Map(mapContainer, mapOption);
+        ps = new kakao.maps.services.Places(map);
+
+        document.getElementById('button-color').addEventListener('click', function () {
+          const sido = document.getElementById('sidoDropdown').textContent;
+          const gungu = document.getElementById('gunguDropdown').textContent;
+          const bank = document.getElementById('bankDropdown').textContent;
+          if (sido.includes('선택') || gungu.includes('선택') || bank.includes('선택')) {
+            alert('모든 항목을 선택해주세요.'); return;
+          }
+          searchPlaces(`${sido} ${gungu} ${bank}`);
+        });
+      })
+      .catch(err => console.error('JSON 로드 오류:', err));
+
+    function searchPlaces(keyword) {
+      markers.forEach(m => m.setMap(null)); markers = [];
+      infowindows.forEach(iw => iw.close()); infowindows = [];
+      ps.keywordSearch(keyword, function (data, status) {
+        if (status === kakao.maps.services.Status.OK) {
+          const bounds = new kakao.maps.LatLngBounds();
+          data.forEach(place => {
+            displayMarker(place);
+            bounds.extend(new kakao.maps.LatLng(place.y, place.x));
+          });
+          map.setBounds(bounds);
+        } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+          alert('검색 결과가 없습니다.');
+        } else {
+          alert('검색 중 오류가 발생했습니다.');
+        }
+      });
+    }
+
+    function displayMarker(place) {
+      const marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x)
+      });
+      markers.push(marker);
+
+      const iw = new kakao.maps.InfoWindow({
+        content: `
+      <div style="
+        padding:15px;
+        width:200px;        
+        white-space:normal;
+        word-break:break-all;
+      ">
+        ${place.place_name}
+      </div>
+    `
+      });
+      infowindows.push(iw);
+
+      kakao.maps.event.addListener(marker, 'mouseover', function () {
+        iw.open(map, marker);
+      });
+      kakao.maps.event.addListener(marker, 'mouseout', function () {
+        iw.close();
+      });
+    }
+
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
+</html>

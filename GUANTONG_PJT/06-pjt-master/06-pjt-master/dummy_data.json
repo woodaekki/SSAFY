@@ -1,0 +1,87 @@
+[
+  {
+    "product_id": "FP001",
+    "product_name": "프리미엄 정기예금",
+    "product_type": "예금",
+    "interest_rate": 3.2,
+    "bank_name": "하나은행",
+    "min_balance": 1000000,
+    "max_balance": 100000000,
+    "term_months": 12,
+    "risk_level": "low",
+    "target_customer": "사회초년생",
+    "features": [
+      "세전이율 제공",
+      "모바일 전용",
+      "자동 재예치 기능"
+    ]
+  },
+  {
+    "product_id": "FP002",
+    "product_name": "청년 우대 적금",
+    "product_type": "적금",
+    "interest_rate": 5.0,
+    "bank_name": "국민은행",
+    "min_balance": 10000,
+    "max_balance": 3000000,
+    "term_months": 24,
+    "risk_level": "low",
+    "target_customer": "청년",
+    "features": [
+      "비과세 혜택",
+      "월 납입한도 있음",
+      "복리 계산"
+    ]
+  },
+  {
+    "product_id": "FP003",
+    "product_name": "스마트 대출 상품",
+    "product_type": "대출",
+    "interest_rate": 6.8,
+    "bank_name": "신한은행",
+    "min_balance": 0,
+    "max_balance": 50000000,
+    "term_months": 36,
+    "risk_level": "medium",
+    "target_customer": "자영업자",
+    "features": [
+      "무보증 심사",
+      "조기 상환 수수료 없음",
+      "온라인 신청 가능"
+    ]
+  },
+  {
+    "product_id": "FP004",
+    "product_name": "VIP 고금리 예금",
+    "product_type": "예금",
+    "interest_rate": 4.2,
+    "bank_name": "우리은행",
+    "min_balance": 50000000,
+    "max_balance": 200000000,
+    "term_months": 6,
+    "risk_level": "low",
+    "target_customer": "고자산가",
+    "features": [
+      "고객 등급 우대",
+      "단기 고금리 제공",
+      "지점 전용"
+    ]
+  },
+  {
+    "product_id": "FP005",
+    "product_name": "신혼부부 맞춤형 적금",
+    "product_type": "적금",
+    "interest_rate": 3.7,
+    "bank_name": "카카오뱅크",
+    "min_balance": 50000,
+    "max_balance": 10000000,
+    "term_months": 18,
+    "risk_level": "low",
+    "target_customer": "신혼부부",
+    "features": [
+      "자동이체 우대금리",
+      "주택청약 연계",
+      "모바일 관리"
+    ]
+  }
+]
