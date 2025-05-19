@@ -5,14 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3d05e0b-8d37-4345-94e6-e9e41fd1b1fd" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/bag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BAEKJOON.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BAEKJOON.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cut_the_trees.py" beforeDir="false" afterPath="$PROJECT_DIR$/cut_the_trees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/assets/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/assets/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/components/TheWelcome.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/components/WelcomeItem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/components/icons/IconCommunity.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/components/icons/IconDocumentation.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/components/icons/IconEcosystem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/components/icons/IconSupport.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/components/icons/IconTooling.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/stores/counter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/views/AboutView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/src/views/HomeView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_prac/vue-project/vite.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -26,17 +60,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.cut_the_trees.executor&quot;: &quot;Run&quot;,
-    &quot;Python.robot.executor&quot;: &quot;Run&quot;,
-    &quot;Python.umbrella.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.bag.executor": "Run",
+    "Python.cut_the_trees.executor": "Run",
+    "Python.robot.executor": "Run",
+    "Python.umbrella.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master"
   }
-}</component>
-  <component name="RunManager" selected="Python.cut_the_trees">
+}]]></component>
+  <component name="RunManager" selected="Python.bag">
+    <configuration name="bag" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BAEKJOON" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bag.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="cut_the_trees" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BAEKJOON" />
       <option name="ENV_FILES" value="" />
@@ -105,6 +162,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.bag" />
         <item itemvalue="Python.cut_the_trees" />
         <item itemvalue="Python.robot" />
         <item itemvalue="Python.umbrella" />
